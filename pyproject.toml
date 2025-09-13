@@ -1,0 +1,121 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dsa-practice"
+version = "1.0.0"
+description = "DSA Practice Repository with Premium Features"
+authors = [
+    {name = "DSA Practice Team", email = "team@dsapractice.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "pytest>=7.0.0",
+    "pytest-timeout>=2.1.0",
+    "pytest-benchmark>=4.0.0",
+    "pytest-cov>=4.0.0",
+    "memory-profiler>=0.60.0",
+    "psutil>=5.9.0",
+    "py-spy>=0.3.14",
+    "line-profiler>=4.0.0",
+    "hypothesis>=6.0.0",
+    "faker>=18.0.0",
+    "pytest-xdist>=3.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.6.0",
+    "seaborn>=0.12.0",
+    "plotly>=5.15.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+    "pytest-html>=3.1.0",
+    "coverage>=7.0.0",
+    "toml>=0.10.2",
+    "click>=8.0.0",
+    "rich>=13.0.0",
+]
+
+[project.scripts]
+dsa = "dsa_practice.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/dsa-practice"
+Repository = "https://github.com/yourusername/dsa-practice"
+Issues = "https://github.com/yourusername/dsa-practice/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["dsa_practice*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--verbose",
+    "--tb=short",
+    "--strict-markers",
+    "--disable-warnings",
+    "--timeout=30",
+    "--benchmark-only",
+    "--benchmark-sort=mean",
+    "--benchmark-save-data",
+    "--benchmark-save=benchmark_results",
+    "--cov=.",
+    "--cov-report=html",
+    "--cov-report=term-missing",
+    "--cov-report=xml",
+    "--html=reports/test_report.html",
+    "--self-contained-html",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "performance: marks tests as performance tests",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "leetcode: marks tests as LeetCode specific",
+    "codeforces: marks tests as Codeforces specific",
+    "topcoder: marks tests as TopCoder specific",
+    "codechef: marks tests as CodeChef specific",
+]

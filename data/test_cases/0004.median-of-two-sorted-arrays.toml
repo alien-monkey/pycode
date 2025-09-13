@@ -1,0 +1,22 @@
+# Median Of Two Sorted Arrays Test Cases
+# ==========================
+# Test cases for Leetcode 4: Median Of Two Sorted Arrays
+
+[problem]
+name = "Median Of Two Sorted Arrays"
+description = "Problem description goes here"
+difficulty = "hard"
+platform = "Leetcode"
+problem_id = 4
+
+[[test_cases]]
+description = "Basic example"
+input = [1, 2, 3]
+expected = [0, 1]
+timeout = 1.0
+
+[[test_cases]]
+description = "Edge case"
+input = []
+expected = []
+timeout = 1.0

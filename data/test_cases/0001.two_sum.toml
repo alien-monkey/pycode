@@ -1,0 +1,66 @@
+# Two Sum Test Cases
+# ==================
+# Test cases for LeetCode 1: Two Sum problem
+
+[problem]
+name = "Two Sum"
+description = "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target."
+difficulty = "Easy"
+platform = "LeetCode"
+problem_id = 1
+
+[[test_cases]]
+description = "Basic example with solution"
+input = [2, 7, 11, 15]
+target = 9
+expected = [0, 1]
+timeout = 1.0
+
+[[test_cases]]
+description = "Different indices"
+input = [3, 2, 4]
+target = 6
+expected = [1, 2]
+timeout = 1.0
+
+[[test_cases]]
+description = "Same numbers"
+input = [3, 3]
+target = 6
+expected = [0, 1]
+timeout = 1.0
+
+[[test_cases]]
+description = "Larger array"
+input = [1, 2, 3, 4, 5]
+target = 9
+expected = [3, 4]
+timeout = 1.0
+
+[[test_cases]]
+description = "No solution"
+input = [1, 2, 3, 4, 5]
+target = 10
+expected = []
+timeout = 1.0
+
+[[test_cases]]
+description = "Edge case - empty array"
+input = []
+target = 0
+expected = []
+timeout = 1.0
+
+[[test_cases]]
+description = "Edge case - single element"
+input = [1]
+target = 1
+expected = []
+timeout = 1.0
+
+[[test_cases]]
+description = "Edge case - two elements that don't sum to target"
+input = [1, 2]
+target = 4
+expected = []
+timeout = 1.0

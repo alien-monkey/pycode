@@ -1,0 +1,26 @@
+# Pre-commit hooks configuration with auto-fixing
+# Restricted to main directories: src/, dsa_practice/, tests/, utils/
+repos:
+  # Python code formatting with auto-fix
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        language_version: python3
+        args: [--line-length=100]
+        files: ^(src/|dsa_practice/|tests/|utils/).*\.py$
+
+  # Import sorting with auto-fix
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        args: [--profile=black, --line-length=100]
+        files: ^(src/|dsa_practice/|tests/|utils/).*\.py$
+
+  # Python linting (read-only, no auto-fix)
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.3.0
+    hooks:
+      - id: flake8
+        files: ^(src/|dsa_practice/|tests/|utils/).*\.py$

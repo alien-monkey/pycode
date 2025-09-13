@@ -1,0 +1,22 @@
+# Longest Substring Test Cases
+# ==========================
+# Test cases for Leetcode 3: Longest Substring
+
+[problem]
+name = "Longest Substring"
+description = "Problem description goes here"
+difficulty = "medium"
+platform = "Leetcode"
+problem_id = 3
+
+[[test_cases]]
+description = "Basic example"
+input = [1, 2, 3]
+expected = [0, 1]
+timeout = 1.0
+
+[[test_cases]]
+description = "Edge case"
+input = []
+expected = []
+timeout = 1.0
