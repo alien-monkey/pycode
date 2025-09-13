@@ -1,0 +1,45 @@
+# Substr_Concat Test Cases
+# ==========================
+# Test cases for Leetcode 30: Substr_Concat
+
+[problem]
+name = "Substr_Concat"
+description = "Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once, without any intervening characters."
+difficulty = "hard"
+platform = "Leetcode"
+problem_id = 30
+
+[[test_cases]]
+description = "Basic example"
+s = "barfoothefoobarman"
+words = ["foo", "bar"]
+expected = [0, 9]
+timeout = 1.0
+
+[[test_cases]]
+description = "No valid concatenation"
+s = "wordgoodgoodgoodbestword"
+words = ["word", "good", "best", "word"]
+expected = []
+timeout = 1.0
+
+[[test_cases]]
+description = "Empty words array"
+s = "barfoothefoobarman"
+words = []
+expected = []
+timeout = 1.0
+
+[[test_cases]]
+description = "Single character words"
+s = "ababaab"
+words = ["ab", "ba", "ba"]
+expected = [1]
+timeout = 1.0
+
+[[test_cases]]
+description = "All same words"
+s = "aaaaaaaa"
+words = ["aa", "aa", "aa"]
+expected = [0, 1, 2]
+timeout = 1.0

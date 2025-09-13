@@ -90,16 +90,24 @@ class BaseSolution(ABC):
 
             test_cases = []
             for test_data in data.get("test_cases", []):
-                # Handle different input formats
-                if "target" in test_data:
-                    # For problems like Two Sum with separate input and target
-                    input_data = (test_data["input"], test_data["target"])
-                elif "l1" in test_data and "l2" in test_data:
-                    # For problems like Add Two Numbers with two lists
-                    input_data = (test_data["l1"], test_data["l2"])
-                else:
-                    # For other problems with single input
+                # Generic input handling - map all non-metadata fields to input
+                input_fields = {}
+                metadata_fields = {"expected", "description", "timeout", "input"}
+
+                for key, value in test_data.items():
+                    if key not in metadata_fields:
+                        input_fields[key] = value
+
+                # If we have individual fields, create a tuple in the order they appear
+                if input_fields:
+                    # Sort by key to ensure consistent ordering
+                    input_data = tuple(input_fields[key] for key in sorted(input_fields.keys()))
+                elif "input" in test_data:
+                    # Fallback to the old "input" field format
                     input_data = test_data["input"]
+                else:
+                    # No input data found
+                    input_data = None
 
                 test_case = TestCase(
                     input=input_data,

@@ -21,7 +21,7 @@ import sys
 from typing import Any, List, Optional
 
 # Add the project root to the path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "..", ".."))
 
 from utils.base_solution import BaseSolution, main_solution_runner
 
@@ -74,4 +74,6 @@ class MedianOfTwoSortedArrays(BaseSolution):
 
 if __name__ == "__main__":
     # Replace "0001.your_problem.toml" with your actual test file
-    main_solution_runner(Solution, "data/test_cases/0004.median-of-two-sorted-arrays.toml")
+    main_solution_runner(
+        MedianOfTwoSortedArrays, "data/test_cases/0004.median-of-two-sorted-arrays.toml"
+    )

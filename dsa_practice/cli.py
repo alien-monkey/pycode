@@ -20,7 +20,7 @@ from rich.table import Table
 # from rich import print as rprint  # Unused import
 
 # Add the project root to the path
-project_root = Path(__file__).parent.parent
+project_root = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(project_root))
 
 console = Console()
@@ -220,7 +220,6 @@ def run(solution_name: str):
     console.print(f"🚀 Running solution: {rel_path}")
     try:
         subprocess.run([sys.executable, str(solution_path)], cwd=project_root, check=True)
-        console.print("✅ Solution completed successfully!")
     except subprocess.CalledProcessError as e:
         console.print(f"❌ Solution failed with exit code {e.returncode}")
     except FileNotFoundError:

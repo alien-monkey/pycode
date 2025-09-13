@@ -97,6 +97,9 @@ source venv/bin/activate
 make dev-install
 ```
 
+## **🐞 Debuggging**
+![pycharm_run_config.png](assets/pycharm_run_config.png)
+
 ## **📁 Virtual Environment Handling**
 
 ### **✅ What to EXCLUDE from Git (Already in .gitignore)**
