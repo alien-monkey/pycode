@@ -1,0 +1,28 @@
+# Palindrome_Pairs Test Cases
+# ==========================
+# Test cases for Leetcode 336: Palindrome_Pairs
+
+[problem]
+name = "Palindrome_Pairs"
+description = "Problem description goes here"
+difficulty = "hard"
+platform = "Leetcode"
+problem_id = 336
+
+[[test_cases]]
+description = "Basic example"
+input = ["abcd","dcba","lls","s","sssll"]
+expected = [[0,1],[1,0],[2,4],[3,2]]
+timeout = 1.0
+
+[[test_cases]]
+description = "next case"
+input = ["bat","tab","cat"]
+expected = [[0,1],[1,0]]
+timeout = 1.0
+
+[[test_cases]]
+description = "next case"
+input = ["a",""]
+expected = [[0,1],[1,0]]
+timeout = 1.0

@@ -1,0 +1,28 @@
+# Prd_Of_Array Test Cases
+# ==========================
+# Test cases for Leetcode 238: Prd_Of_Array
+
+[problem]
+name = "Prd_Of_Array"
+description = "Problem description goes here"
+difficulty = "medium"
+platform = "Leetcode"
+problem_id = 238
+
+[[test_cases]]
+description = "Basic example"
+input = [1, 2, 3, 4]
+expected = [24,12,8,6]
+timeout = 1.0
+
+[[test_cases]]
+description = "zero case"
+input = [-1,1,0,-3,3]
+expected = [0,0,9,0,0]
+timeout = 1.0
+
+[[test_cases]]
+description = "edge case"
+input = [9,0,-2]
+expected = [0,-18,0]
+timeout = 1.0

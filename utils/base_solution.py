@@ -104,7 +104,11 @@ class BaseSolution(ABC):
                     input_data = tuple(input_fields[key] for key in sorted(input_fields.keys()))
                 elif "input" in test_data:
                     # Fallback to the old "input" field format
-                    input_data = test_data["input"]
+                    # If input is a list, wrap it in a tuple for unpacking
+                    if isinstance(test_data["input"], list):
+                        input_data = (test_data["input"],)
+                    else:
+                        input_data = test_data["input"]
                 else:
                     # No input data found
                     input_data = None

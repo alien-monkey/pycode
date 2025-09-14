@@ -1,7 +1,25 @@
-import collections
+"""
+LeetCode Solution Template
+=========================
+
+Clean template for LeetCode solutions with minimal boilerplate.
+Focus only on the algorithm implementation.
+
+Usage:
+    1. Copy this template to your problem file (use format: 0001.problem_name.py)
+    2. Implement the solve() method
+    3. Optionally implement solve_optimized() for better performance
+    4. Create a TOML test file in data/test_cases/ (use format: 0001.problem_name.toml)
+    5. Run: python your_solution.py
+
+Example:
+    python solutions/leetcode/easy/0001.two_sum.py
+"""
+
+import math
 import os
 import sys
-from typing import Any, List, Optional
+from typing import Any, List
 
 # Add the project root to the path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "..", ".."))
@@ -9,7 +27,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "..", "..
 from utils.base_solution import BaseSolution, main_solution_runner
 
 
-class SubstrConcat(BaseSolution):
+class PrdOfArray(BaseSolution):
     """
     Your solution class - focus only on the algorithm!
 
@@ -18,9 +36,9 @@ class SubstrConcat(BaseSolution):
     """
 
     def __init__(self):
-        super().__init__("Substr_Concat")
+        super().__init__("Prd_Of_Array")
 
-    def solve(self, s: str, words: List[str]) -> Any:
+    def solve(self, nums: List[int]) -> Any:
         """
         Main solution method - implement your algorithm here
 
@@ -31,29 +49,23 @@ class SubstrConcat(BaseSolution):
         Returns:
             Solution result
         """
-        s_len = len(s)
-        word_count = len(words)
-        result = []
-        if s_len > 0 and word_count > 0:
-            word_len = len(words[0])
-            window_size = word_count * word_len
-
-            for i in range(s_len - window_size - 1):
-                freq = collections.Counter(words)
-                substr = s[i : i + window_size]
-                for j in range(word_count):
-                    match = substr[j * word_len : (j + 1) * word_len]
-                    if match in freq and freq[match] > 0:
-                        freq[match] -= 1
-                    if sum(list(freq.values())) == 0:
-                        result.append(i)
+        n = len(nums)
+        prefix_product = 1
+        postfix_product = 1
+        result = [0] * n
+        for i in range(n):
+            result[i] = prefix_product
+            prefix_product *= nums[i]
+        for i in range(n - 1, -1, -1):
+            result[i] *= postfix_product
+            postfix_product *= nums[i]
         return result
 
-    def solve_optimized(self, s: str, words: List[str]) -> Any:
+    def solve_optimized(self, nums: List[int]) -> Any:
         """
         Optimized solution method - implement if you have a better approach
         """
-        return self.solve(s, words)
+        return self.solve(nums)
 
     def _parse_interactive_input(self, user_input: str) -> Any:
         """
@@ -72,4 +84,4 @@ class SubstrConcat(BaseSolution):
 
 if __name__ == "__main__":
     # Replace "0001.your_problem.toml" with your actual test file
-    main_solution_runner(SubstrConcat, "data/test_cases/0030.substr_concat.toml")
+    main_solution_runner(PrdOfArray, "data/test_cases/0238.prd_of_array.toml")

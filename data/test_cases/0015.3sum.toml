@@ -1,0 +1,28 @@
+# 3Sum Test Cases
+# ==========================
+# Test cases for Leetcode 15: 3Sum
+
+[problem]
+name = "3Sum"
+description = "Problem description goes here"
+difficulty = "hard"
+platform = "Leetcode"
+problem_id = 15
+
+[[test_cases]]
+description = "Basic example"
+input = [-1,0,1,2,-1,-4]
+expected = [[-1,-1,2],[-1,0,1]]
+timeout = 1.0
+
+[[test_cases]]
+description = "Edge case"
+input = [0,1,1]
+expected = []
+timeout = 1.0
+
+[[test_cases]]
+description = "zero case"
+input = [0,0,0]
+expected = [[0,0,0]]
+timeout = 1.0
